@@ -98,3 +98,15 @@ footer.site a{color:var(--muted);margin-right:14px}footer.site a:hover{color:var
 @media (prefers-reduced-motion:no-preference){.star-stage:not(.ready) .mascot,.star-stage:not(.ready) .shadow{visibility:hidden}}
 @media (max-width:640px){.star-stage{--s:200px;margin:-34px auto 8px}.mascot .bubble{left:auto;right:-30%;top:-8%;font-size:.9rem;padding:7px 12px}}
 @media (prefers-reduced-motion:reduce){.mascot .halo,.ms .m-talk .jaw,.mascot .bubble .hand{animation:none}.ms .st,.ms .ball{transition:none}}
+/* Tall Crawl spider walk-by */
+.star-stage .spider{--w:96px;position:absolute;left:0;top:calc(var(--s)*.93 - var(--w)*.6);width:var(--w);height:calc(var(--w)*80/124);z-index:3;display:none;cursor:pointer;will-change:transform}
+.star-stage .spider.run{display:block}
+.spider svg{width:100%;height:100%;display:block;overflow:visible;filter:drop-shadow(0 0 5px rgba(177,221,180,.45)) drop-shadow(0 4px 3px rgba(0,0,0,.4))}
+.spider .lg{transform-box:view-box;transform-origin:0 0}
+.spider.run .lg.a{animation:scut .17s linear infinite alternate}
+.spider.run .lg.b{animation:scut .17s linear infinite alternate-reverse}
+.spider.run .sbody{animation:sbob .085s ease-in-out infinite alternate}
+@keyframes scut{from{transform:rotate(-16deg)}to{transform:rotate(14deg) translateY(-2px)}}
+@keyframes sbob{to{transform:translateY(-1.6px)}}
+@media (max-width:640px){.star-stage .spider{--w:64px}}
+@media (prefers-reduced-motion:reduce){.star-stage .spider{display:none!important}}
