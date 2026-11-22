@@ -58,3 +58,6 @@ footer.site{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);f
 footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer.site a{color:var(--muted);margin-right:14px}footer.site a:hover{color:var(--y)}
 .center{text-align:center}
+
+.game .trailer{width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;display:block;background:#000}
+@media (max-width:640px){.game .trailer{max-height:none;max-width:360px;margin:0 auto}}
