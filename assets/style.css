@@ -61,3 +61,9 @@ footer.site a{color:var(--muted);margin-right:14px}footer.site a:hover{color:var
 
 .game .trailer{width:100%;height:auto;aspect-ratio:9/16;object-fit:contain;display:block;background:#000}
 @media (max-width:640px){.game .trailer{max-height:none;max-width:360px;margin:0 auto}}
+.game.feature{grid-template-columns:340px 1fr}
+.feats{margin:4px 0 14px;padding-left:20px;color:var(--muted)}.feats li{margin:6px 0}.feats b{color:#fff}
+.muted{color:var(--muted)}
+.game .icon-wrap{display:flex;align-items:center;justify-content:center;padding:24px;background:var(--bg2)}
+.game .icon-wrap img{width:180px;height:180px;border-radius:22%;box-shadow:0 10px 30px rgba(0,0,0,.35);object-fit:cover}
+@media (max-width:640px){.game.feature{grid-template-columns:1fr}.game .icon-wrap img{max-height:none}}
