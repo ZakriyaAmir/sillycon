@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zakriyaamir.github.io/sillycon/sitemap.xml
