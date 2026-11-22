@@ -70,23 +70,31 @@ footer.site a{color:var(--muted);margin-right:14px}footer.site a:hover{color:var
 
 /* Animated star mascot */
 .hero{position:relative;overflow:hidden}
-.star-stage{position:relative;height:230px;max-width:720px;margin:-20px auto 18px}
-.hero-star{position:absolute;left:50%;top:18px;width:170px;height:170px;margin-left:-85px;z-index:2}
-.hero-star img{width:100%;height:100%;display:block;transform-origin:50% 100%;animation:sqbounce 2.8s cubic-bezier(.45,0,.55,1) infinite;filter:drop-shadow(0 12px 28px rgba(135,188,239,.35))}
-.star-stage .shadow{position:absolute;left:50%;top:200px;width:110px;height:14px;margin-left:-55px;border-radius:50%;background:rgba(135,188,239,.22);filter:blur(4px);animation:shad 2.8s cubic-bezier(.45,0,.55,1) infinite}
-@keyframes sqbounce{0%,100%{transform:translateY(0) scale(1.08,.92)}12%{transform:translateY(-6px) scale(.94,1.07)}45%{transform:translateY(-34px) scale(1,1) rotate(-4deg)}60%{transform:translateY(-30px) rotate(3deg)}88%{transform:translateY(-2px) scale(.97,1.04)}}
-@keyframes shad{0%,100%{transform:scale(1);opacity:.9}45%,60%{transform:scale(.62);opacity:.45}}
-.hero-star .lid{position:absolute;left:31%;top:39%;width:15%;height:9%;border-radius:50%;background:linear-gradient(135deg,#cfe9d4,#bcdcef);opacity:0;animation:wink 5.6s infinite;transform-origin:50% 100%}
-.hero-star .lid::after{content:"";position:absolute;left:8%;right:8%;bottom:28%;height:3px;border-radius:3px;background:#3A6B7A}
-@keyframes wink{0%,88%,100%{opacity:0}90%,95%{opacity:1}}
-.fs{position:absolute;opacity:.85;filter:drop-shadow(0 6px 14px rgba(135,188,239,.25));animation:floaty 7s ease-in-out infinite}
-.fs1{left:6%;top:30px;width:52px;animation-duration:6.5s}
-.fs2{left:22%;top:150px;width:30px;animation-duration:8s;animation-delay:-2s;opacity:.6}
-.fs3{left:76%;top:20px;width:60px;animation-duration:7.2s;animation-delay:-1s}
-.fs4{left:90%;top:140px;width:34px;animation-duration:9s;animation-delay:-3s;opacity:.65}
-.fs5{left:64%;top:160px;width:26px;animation-duration:6s;animation-delay:-4s;opacity:.55}
-.fs6{left:32%;top:12px;width:22px;animation-duration:10s;animation-delay:-5s;opacity:.5}
-.fs7{left:-1%;top:170px;width:24px;animation-duration:8.5s;animation-delay:-6s;opacity:.45}
-@keyframes floaty{0%,100%{transform:translateY(0) rotate(-8deg) scale(1)}25%{transform:translateY(-14px) rotate(6deg) scale(1.04,.97)}50%{transform:translateY(-4px) rotate(14deg) scale(.97,1.03)}75%{transform:translateY(-18px) rotate(-2deg)}}
-@media (max-width:640px){.star-stage{height:190px}.hero-star{width:130px;height:130px;margin-left:-65px}.star-stage .shadow{top:158px}.fs3{left:72%}.fs4{left:84%}}
-@media (prefers-reduced-motion:reduce){.hero-star img,.fs,.star-stage .shadow,.hero-star .lid{animation:none}}
+.star-stage{--s:290px;position:relative;height:calc(var(--s) + 22px);max-width:900px;margin:-18px auto 14px}
+.star-stage .shadow{position:absolute;left:50%;top:calc(var(--s)*.93 - 4px);width:calc(var(--s)*.6);height:calc(var(--s)*.07);margin-left:calc(var(--s)*-.3);border-radius:50%;background:radial-gradient(closest-side,rgba(135,188,239,.42),rgba(135,188,239,0));will-change:transform,opacity}
+.mascot{position:absolute;left:50%;top:0;width:var(--s);height:var(--s);margin-left:calc(var(--s)/-2);transform-origin:50% 93%;cursor:pointer;outline:none;-webkit-tap-highlight-color:transparent;will-change:transform;touch-action:manipulation}
+.mascot:focus-visible .spin{outline:3px dashed rgba(177,221,180,.8);outline-offset:6px;border-radius:50%}
+.mascot .spin{width:100%;height:100%;transform-origin:50% 55%;will-change:transform}
+.mascot .halo{position:absolute;inset:-14%;border-radius:50%;background:radial-gradient(closest-side,rgba(135,188,239,.30),rgba(177,221,180,.12) 55%,rgba(177,221,180,0));pointer-events:none;animation:halo 4.5s ease-in-out infinite}
+@keyframes halo{50%{transform:scale(1.07);opacity:.75}}
+.ms{width:100%;height:100%;display:block;overflow:visible;filter:drop-shadow(0 14px 30px rgba(135,188,239,.38))}
+.ms .st{opacity:0;transform:scale(.5);transform-box:fill-box;transform-origin:center;transition:opacity .14s ease,transform .26s cubic-bezier(.34,1.56,.64,1)}
+.ms[data-le=open] .le .s-open,.ms[data-le=big] .le .s-open,.ms[data-le=happy] .le .s-happy,
+.ms[data-re=open] .re .s-open,.ms[data-re=big] .re .s-open,.ms[data-re=happy] .re .s-happy,.ms[data-re=wink] .re .s-wink,
+.ms[data-m=smile] .m-smile,.ms[data-m=talk] .m-talk,.ms[data-m=grin] .m-grin,.ms[data-m=cheeky] .m-cheeky,.ms[data-m=o] .m-o{opacity:1;transform:none}
+.ms[data-le=big] .le .s-open,.ms[data-re=big] .re .s-open{transform:scale(1.16)}
+.ms .ball{transform-box:fill-box;transform-origin:center;transition:transform .07s ease-in}
+.ms.blink .ball{transform:scaleY(.08)}
+.ms .m-talk .jaw{transform-box:fill-box;transform-origin:50% 0;animation:talk .32s ease-in-out infinite alternate}
+@keyframes talk{from{transform:scaleY(.62)}to{transform:scaleY(1.04)}}
+.ms .cheeks{opacity:var(--blush,.25)}
+.ms .sparkle .sp{transform-box:fill-box;transform-origin:center;transform:scale(0);opacity:0}
+.ms.spark .sparkle .sp{animation:spark .95s cubic-bezier(.34,1.56,.64,1) both}.ms.spark .sparkle .sp2{animation-delay:.12s}
+@keyframes spark{0%{transform:scale(0) rotate(-45deg);opacity:0}35%{transform:scale(1.15) rotate(10deg);opacity:1}70%{transform:scale(.9) rotate(30deg);opacity:1}100%{transform:scale(0) rotate(60deg);opacity:0}}
+.mascot .bubble{position:absolute;left:78%;top:-2%;white-space:nowrap;padding:9px 16px;border-radius:20px 20px 20px 6px;background:linear-gradient(135deg,#B1DDB4,#87BCEF);color:#173a45;font-weight:900;font-size:1.05rem;box-shadow:0 8px 24px rgba(20,12,46,.45);opacity:0;transform:scale(.3) translateY(14px);transform-origin:0 100%;transition:opacity .2s,transform .35s cubic-bezier(.34,1.56,.64,1);pointer-events:none}
+.mascot .bubble.on{opacity:1;transform:none}
+.mascot .bubble .hand{display:inline-block;transform-origin:70% 80%;animation:hand .5s ease-in-out infinite alternate}
+@keyframes hand{from{transform:rotate(-12deg)}to{transform:rotate(18deg)}}
+@media (prefers-reduced-motion:no-preference){.star-stage:not(.ready) .mascot,.star-stage:not(.ready) .shadow{visibility:hidden}}
+@media (max-width:640px){.star-stage{--s:200px;margin:-34px auto 8px}.mascot .bubble{left:auto;right:-30%;top:-8%;font-size:.9rem;padding:7px 12px}}
+@media (prefers-reduced-motion:reduce){.mascot .halo,.ms .m-talk .jaw,.mascot .bubble .hand{animation:none}.ms .st,.ms .ball{transition:none}}
