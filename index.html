@@ -14,18 +14,18 @@
 <meta property="og:url" content="https://zakriyaamir.github.io/sillycon/">
 <meta property="og:image" content="https://zakriyaamir.github.io/sillycon/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml"><link rel="icon" href="./assets/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
 <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
 <a href="#content" style="position:absolute;left:-9999px">Skip to content</a>
 <header class="site"><div class="wrap">
-<a class="brand" href="./index.html" aria-label="Sillycon home"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#6c3cff"/><circle cx="32" cy="34" r="20" fill="#ffd23f"/><circle cx="25" cy="30" r="3.5" fill="#1a1033"/><circle cx="39" cy="30" r="3.5" fill="#1a1033"/><path d="M23 39q9 8 18 0" stroke="#1a1033" stroke-width="3.5" fill="none" stroke-linecap="round"/><circle cx="46" cy="14" r="5" fill="#ff5fa2"/></svg><span>Silly<b>con</b></span></a>
+<a class="brand" href="./index.html" aria-label="Sillycon home"><img src="./assets/sillycon-star.svg" alt="" width="40" height="40"><span>sillycon</span></a>
 <nav class="main" aria-label="Main"><a href="./index.html" aria-current="page">Home</a><a href="./index.html#games">Games</a><a href="./privacy-policy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./data-deletion.html">Data deletion</a><a href="./support.html">Support</a></nav>
 </div></header>
 <div id="content"></div>
 <main><section class="hero"><div class="wrap">
-<div class="blobs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="star-stage" aria-hidden="true"><img class="fs fs1" src="assets/sillycon-star.svg" alt="" data-depth="0.6"><img class="fs fs2" src="assets/sillycon-star.svg" alt="" data-depth="0.3"><img class="fs fs3" src="assets/sillycon-star.svg" alt="" data-depth="0.9"><img class="fs fs4" src="assets/sillycon-star.svg" alt="" data-depth="0.45"><img class="fs fs5" src="assets/sillycon-star.svg" alt="" data-depth="0.75"><img class="fs fs6" src="assets/sillycon-star.svg" alt="" data-depth="0.25"><img class="fs fs7" src="assets/sillycon-star.svg" alt="" data-depth="0.5"><div class="hero-star" data-depth="0.15"><img src="assets/sillycon-star.svg" alt=""><span class="lid"></span></div><span class="shadow"></span></div>
 <h1>Small games.<br><span class="hl">Big silly fun.</span></h1>
 <p>Sillycon is an independent mobile game studio from Pakistan. We make casual and hypercasual games for Android, built with Unity, that you can pick up in seconds and keep playing for weeks.</p>
 <a class="btn" href="#games">See our games</a><a class="btn alt" href="#contact">Get in touch</a>
@@ -94,5 +94,11 @@
 <div>&copy; 2026 Sillycon. Independent mobile game studio.</div>
 <div><a href="./privacy-policy.html">Privacy Policy</a><a href="./terms.html">Terms</a><a href="./data-deletion.html">Data deletion</a><a href="mailto:sillycon1998@gmail.com">sillycon1998@gmail.com</a></div>
 </div></footer>
+<script>
+(()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const st=document.querySelector('.star-stage');if(!st)return;const els=[...st.querySelectorAll('[data-depth]')];let tx=0,ty=0,cx=0,cy=0;
+addEventListener('pointermove',e=>{tx=(e.clientX/innerWidth-.5)*2;ty=(e.clientY/innerHeight-.5)*2});
+addEventListener('scroll',()=>{ty=Math.min(scrollY/300,1.5)},{passive:true});
+(function loop(){cx+=(tx-cx)*.06;cy+=(ty-cy)*.06;for(const el of els){const d=+el.dataset.depth;el.style.translate=`${-cx*d*28}px ${-cy*d*22}px`}requestAnimationFrame(loop)})()})();
+</script>
 </body>
 </html>
