@@ -110,3 +110,17 @@ footer.site a{color:var(--muted);margin-right:14px}footer.site a:hover{color:var
 @keyframes sbob{to{transform:translateY(-1.6px)}}
 @media (max-width:640px){.star-stage .spider{--w:64px}}
 @media (prefers-reduced-motion:reduce){.star-stage .spider{display:none!important}}
+
+/* Founder / meet the developer */
+.founder{display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:36px}
+.founder-photo{width:220px;height:220px;object-fit:cover;border-radius:50%;display:block;justify-self:center;background:var(--bg2);box-shadow:0 0 0 4px #B1DDB4,0 0 0 10px rgba(135,188,239,.35),0 14px 36px rgba(0,0,0,.35)}
+.founder .body{min-width:0}
+.founder h3{margin:0 0 4px;font-size:1.7rem;font-weight:900;letter-spacing:-.4px}
+.founder-role{margin:0 0 16px;font-weight:800;color:#3A6B7A;font-size:1.05rem;background:linear-gradient(90deg,#B1DDB4,#87BCEF);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.founder .body>p{margin:0 0 14px;color:var(--muted)}
+.founder-edu{padding:12px 16px;background:rgba(177,221,180,.1);border-left:4px solid #B1DDB4;border-radius:10px;color:var(--ink)!important}
+.founder-edu strong{color:var(--ink)}
+.founder-actions{display:flex;flex-wrap:wrap;gap:4px;margin:18px 0 0!important}
+.founder-actions .btn{display:inline-flex;align-items:center;gap:8px}
+.founder-actions .btn svg{flex-shrink:0}
+@media (max-width:700px){.founder{grid-template-columns:1fr;padding:28px 22px;gap:22px;text-align:center;justify-items:center}.founder-photo{width:180px;height:180px}.founder-edu{text-align:left}.founder-actions{justify-content:center}}
